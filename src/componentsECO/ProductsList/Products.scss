@@ -1,0 +1,45 @@
+
+
+.product_Border{
+   background-color: rgb(184, 160, 160);
+   margin-bottom: 10px;
+   padding: 10px;
+   border-radius: 15px;
+}
+
+.products_Border{
+    text-align: center;
+    border: 2px solid black;
+    padding: 5px;
+    background-color: rgb(157, 180, 111);
+}
+
+
+
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  
+    .pagination-buttons {
+      display: flex;
+      gap: 10px;
+  
+      button {
+        padding: 5px 10px;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        background-color: white;
+        &:hover {
+          background-color: #f0f0f0;
+        }
+        &.active {
+          background-color: #007bff;
+          color: white;
+        }
+      }
+    }
+  }
+  

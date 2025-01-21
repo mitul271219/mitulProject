@@ -7,8 +7,8 @@ import './HomePage.scss'
 export const Home2 = () => {
   return (
     <>
-       <div className='container-fluied background'>
        <Navbars/>
+       <div className='container-fluied background'>
        <Products/> 
        </div>
     </>

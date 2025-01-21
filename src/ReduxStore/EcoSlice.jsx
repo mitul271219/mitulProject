@@ -7,17 +7,24 @@ export const categoryProduct = createAsyncThunk("categoryProduct" , async () => 
         return await res.data
   })
 
+export const productS = createAsyncThunk("productS" , async () => {
+    const res = await axios.get(`https://api.escuelajs.co/api/v1/products`)
+    return await res.data
+})
+
 const ecommerce = createSlice({
     name : "ecommerce",
     initialState:{
         isLoading:false,
         reject:false,
-        cateGoryList:[]
+        cateGoryList:[],
+        listOfProduct:[]
     },
     reducers:{
 
     },
     extraReducers:(builder) => {
+        // categoryProduct
         builder.addCase(categoryProduct.pending , (state , action) => {
             state.isLoading = true
             state.reject = false
@@ -28,6 +35,21 @@ const ecommerce = createSlice({
             state.cateGoryList = action.payload
         })
         builder.addCase(categoryProduct.rejected , (state , action) => {
+            state.isLoading = false
+            state.reject = true
+        })      
+
+        // productS        
+        builder.addCase(productS.pending , (state , action) => {
+            state.isLoading = true
+            state.reject = false
+        })
+        builder.addCase(productS.fulfilled , (state , action) => {
+            state.isLoading = false
+            state.reject  = false
+            state.listOfProduct = action.payload
+        })
+        builder.addCase(productS.rejected , (state , action) => {
             state.isLoading = false
             state.reject = true
         })      
