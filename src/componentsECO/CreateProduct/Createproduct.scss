@@ -1,0 +1,42 @@
+/* Createproduct.scss */
+.container {
+    background-color: #f4f4f4;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+input, .form-control {
+    padding: 12px;
+    font-size: 16px;
+}
+
+button {
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Error Message Styling */
+.form-control.is-invalid {
+    border-color: #dc3545; /* Red border for invalid input */
+}
+
+.form-control-feedback {
+    color: #dc3545; /* Red color for error messages */
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 20px;
+    }
+}
