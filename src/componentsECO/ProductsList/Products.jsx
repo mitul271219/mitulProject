@@ -3,26 +3,21 @@
 // import { categoryProduct, productS } from '../../ReduxStore/EcoSlice';
 // import './Products.scss'
 
-
 // export const Products = () => {
 
 //     const state  = useSelector((state) => state?.ecoProject)
 //     console.log(state);
 //     const dispatch = useDispatch()
 
-
 //     const categoryData = [...new Set(state?.cateGoryList.map((cat) => {
 //             return cat.name
 //     }))]
 //     console.log(categoryData);
-    
-
 
 //     useEffect(() => {
 //         dispatch(categoryProduct())
 //         dispatch(productS())
 //     },[])
-    
 
 //   return (
 //    <>
@@ -58,16 +53,6 @@
 //   )
 // }
 
-
-
-
-
-
-
-
-
-
-
 // import React, { useEffect, useState } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { categoryProduct, productS } from '../../ReduxStore/EcoSlice';
@@ -76,7 +61,7 @@
 // export const Products = () => {
 //     const state = useSelector((state) => state?.ecoProject);
 //     const dispatch = useDispatch();
-    
+
 //     const [currentPage, setCurrentPage] = useState(1);
 //     const categoriesPerPage = 4; // Show 3 categories per page
 
@@ -89,7 +74,6 @@
 //     console.log(indexOfFirstCategory + " indexOfFirstCategory");
 //     const currentCategories = categoryData.slice(indexOfFirstCategory, indexOfLastCategory);
 //     console.log(currentCategories);
-    
 
 //     useEffect(() => {
 //         dispatch(categoryProduct());
@@ -128,14 +112,14 @@
 
 //                 {/* Pagination Controls */}
 //                 <div className="pagination">
-//                     <button 
-//                         onClick={() => handlePageChange(currentPage - 1)} 
+//                     <button
+//                         onClick={() => handlePageChange(currentPage - 1)}
 //                         disabled={currentPage === 1}
 //                     >
 //                         Previous
 //                     </button>
-//                     <button 
-//                         onClick={() => handlePageChange(currentPage + 1)} 
+//                     <button
+//                         onClick={() => handlePageChange(currentPage + 1)}
 //                         disabled={currentPage === Math.ceil(categoryData.length / categoriesPerPage)}
 //                     >
 //                         Next
@@ -146,13 +130,7 @@
 //     );
 // };
 
-
-
-
-
-
-
-// import React, { useEffect, useState } from 'react'; 
+// import React, { useEffect, useState } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { categoryProduct, productS } from '../../ReduxStore/EcoSlice';
 // import './Products.scss';
@@ -163,7 +141,7 @@
 // export const Products = () => {
 //     const state = useSelector((state) => state?.ecoProject);
 //     const dispatch = useDispatch();
-    
+
 //     const [currentPage, setCurrentPage] = useState(1);
 //     const categoriesPerPage = 4; // Show 4 categories per page
 
@@ -196,7 +174,7 @@
 //                             <div key={cat} className='container'>
 //                                 <div className='row product_Border'>
 //                                     <h4>{cat}</h4>
-                                    
+
 //                                     {/* Swiper Slider for Products */}
 //                                     <Swiper
 //                                         spaceBetween={20} // Adjust space between slides
@@ -223,14 +201,14 @@
 
 //                 {/* Pagination Controls */}
 //                 <div className="pagination">
-//                     <button 
-//                         onClick={() => handlePageChange(currentPage - 1)} 
+//                     <button
+//                         onClick={() => handlePageChange(currentPage - 1)}
 //                         disabled={currentPage === 1}
 //                     >
 //                         Previous
 //                     </button>
-//                     <button 
-//                         onClick={() => handlePageChange(currentPage + 1)} 
+//                     <button
+//                         onClick={() => handlePageChange(currentPage + 1)}
 //                         disabled={currentPage === Math.ceil(categoryData.length / categoriesPerPage)}
 //                     >
 //                         Next
@@ -243,239 +221,237 @@
 
 
 
-
-
-
-
-
-import React, { useEffect, useState } from 'react'; 
-import { useDispatch, useSelector } from 'react-redux';
-import { categoryProduct, productS } from '../../ReduxStore/EcoSlice';
-import './Products.scss';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css'; // Import Swiper styles
-import 'swiper/css/navigation'; // Import Navigation styles
-import 'swiper/css/pagination'; // Import Pagination styles
-import { Navigation, Pagination } from 'swiper/modules'; // Correct Swiper module import for v9+
+// code: 2 
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { categoryProduct, productS } from "../../ReduxStore/EcoSlice";
+import "./Products.scss";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css"; // Import Swiper styles
+import "swiper/css/navigation"; // Import Navigation styles
+import "swiper/css/pagination"; // Import Pagination styles
+import { Navigation, Pagination } from "swiper/modules"; // Correct Swiper module import for v9+
 import { NavLink } from "react-router-dom";
-import { ClipLoader } from 'react-spinners';  // <-- Import ClipLoader here
-
-
+import { ClipLoader } from "react-spinners"; // <-- Import ClipLoader here
 
 export const Products = () => {
-    const state = useSelector((state) => state?.ecoProject);
-    const dispatch = useDispatch();
+  const state = useSelector((state) => state?.ecoProject);
+  const dispatch = useDispatch();
 
-    console.log(state?.listOfProduct);
-    
-    const [currentPage, setCurrentPage] = useState(1);
-    const categoriesPerPage = 4; // Show 4 categories per page
+  console.log(state?.listOfProduct);
 
-    const categoryData = [...new Set(state?.cateGoryList.map((cat) => cat.name))];
+  const [currentPage, setCurrentPage] = useState(1);
+  const categoriesPerPage = 4; // Show 4 categories per page
 
-    // Get the categories for the current page
-    const indexOfLastCategory = currentPage * categoriesPerPage;
-    const indexOfFirstCategory = indexOfLastCategory - categoriesPerPage;
-    const currentCategories = categoryData.slice(indexOfFirstCategory, indexOfLastCategory);
+  const categoryData = [...new Set(state?.cateGoryList.map((cat) => cat.name))];
 
-    useEffect(() => {
-        dispatch(categoryProduct());
-        dispatch(productS());
-    }, [dispatch]);
+  // Get the categories for the current page
+  const indexOfLastCategory = currentPage * categoriesPerPage;
+  const indexOfFirstCategory = indexOfLastCategory - categoriesPerPage;
+  const currentCategories = categoryData.slice(
+    indexOfFirstCategory,
+    indexOfLastCategory
+  );
 
-    // Function to handle page changes
-    const handlePageChange = (pageNumber) => {
-        setCurrentPage(pageNumber);
+  useEffect(() => {
+    dispatch(categoryProduct());
+    dispatch(productS());
+  }, [dispatch]);
+
+  // Function to handle page changes
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  // EXAMPLES
+
+  let jim = "jam";
+  const Funcs = async () => {
+    return jim;
+  };
+
+  // Func().then((res) => {
+  //     console.log(res); // jam
+  // })
+  const getData = async () => {
+    const datares = await Funcs();
+    return datares;
+  };
+  // console.log(getData());
+  // const datares = Funcs()
+  // console.log(datares);
+
+  const Func2 = async () => {
+    const fun1 = async () => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const ans1 = "calling 1";
+          resolve(ans1);
+        }, 2000);
+      });
     };
 
-
-
-
-
-
-
-
-
-
-    // EXAMPLES 
-
-    let jim = "jam"
-    const Funcs = async () => {
-        return jim
-    }
-
-    // Func().then((res) => {
-    //     console.log(res); // jam
-    // })
-    const getData = async () => {
-        const datares = await Funcs()
-        return datares
-    }
-    // console.log(getData());
-    // const datares = Funcs()
-    // console.log(datares);
-    
-
-
-    const Func2 = async () => {
-        const fun1 = async () => {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    const ans1 = "calling 1";
-                    resolve(ans1);
-                }, 2000);
-            });
-        };
-    
-        const fun2 = async () => {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    const ans2 = "calling 2";
-                    resolve(ans2);
-                }, 5000);
-            });
-        };
-    
-        const data1 = await fun1();
-        console.log("fun1 is calling...  " + data1);
-        
-        const data2 = await fun2();
-        console.log("fun2 is calling...  " + data2);
-    
-        return [data1, data2];
+    const fun2 = async () => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const ans2 = "calling 2";
+          resolve(ans2);
+        }, 5000);
+      });
     };
-    
-    // const result = Func2();  // Need to await the async function call
-    // console.log(result); // Logs the results once the promises resolve
-    // Func2().then((res) => {
-    //     console.log(res);  
-    // })  
 
+    const data1 = await fun1();
+    console.log("fun1 is calling...  " + data1);
 
-    // that code are showing like first time call (result) and after call (result2)
-    const SecondFunc =  async () => {
-        console.log("Second Function is calling...");
-    }
+    const data2 = await fun2();
+    console.log("fun2 is calling...  " + data2);
 
-    const MainFunc = async () => {
-        const result =  await Func2(); 
-       // console.log(result); // ['calling 1', 'calling 2']
-       const result2 = await SecondFunc() 
-    }
-    MainFunc()
+    return [data1, data2];
+  };
 
+  // const result = Func2();  // Need to await the async function call
+  // console.log(result); // Logs the results once the promises resolve
+  // Func2().then((res) => {
+  //     console.log(res);
+  // })
 
+  // that code are showing like first time call (result) and after call (result2)
+  const SecondFunc = async () => {
+    console.log("Second Function is calling...");
+  };
 
-    // this coading is showing exicute is step by step like asyncrozie calling
+  const MainFunc = async () => {
+    const result = await Func2();
+    // console.log(result); // ['calling 1', 'calling 2']
+    const result2 = await SecondFunc();
+  };
+  MainFunc();
 
-    // const SecondFunc = () => {
-    //     console.log("Second Function is calling...");
-    // }
+  // this coading is showing exicute is step by step like asyncrozie calling
 
+  // const SecondFunc = () => {
+  //     console.log("Second Function is calling...");
+  // }
 
-    //  const MainFunc = () => {
-    //     const result = Func2(); 
-    //     console.log(result);
-    //     SecondFunc() 
-    // }
-    // MainFunc()
+  //  const MainFunc = () => {
+  //     const result = Func2();
+  //     console.log(result);
+  //     SecondFunc()
+  // }
+  // MainFunc()
 
-    
-    
-
-    
-
-
-    return (
-        <>
-           <div className='container'>
-                {/* Show spinner while loading */}
-                {state.isLoading ? (
-    <div className="spinner-container">
-        <ClipLoader color="#000000" loading={state.isLoading} size={50} />
-    </div>
-) : state.reject ? (
-    <div>
-        <div style={{textAlign:"center"}}>
-        <h3 style={{ textAlign: "center", color: "red" }}>Server Error</h3>
-        <button style={{color:"red"}} onClick={() => {
-            dispatch(categoryProduct());
-            dispatch(productS());
-        }}>Retry</button>
-        </div>
-    </div>
-) : (
-    <div className="row">
-        {currentCategories.map((cat) => {
-            const filterListProducts = state?.listOfProduct.filter(
-                (ele) => ele.category.name === cat
-            );
-            return (
-                <div key={cat} className='container'>
-                    <div className='row product_Border'>
-                        <h4>{cat}</h4>
-                        <Swiper
-                            spaceBetween={20}
-                            slidesPerView={4}
-                            loop={true}
-                            autoplay={{ delay: 3000 }}
-                            modules={[Navigation, Pagination]}
-                            pagination={{ clickable: true }}
-                            navigation
-                        >
-                {state.isLoading ? (
-    <div className="spinner-container">
-        <ClipLoader color="#000000" loading={state.isLoading} size={50} />
-    </div>
-) : (
-    filterListProducts.map((ele) => {
-        // Parse the images array from the stringified version in the object
-       // const imageUrls = JSON.parse(ele?.images); // Parse the first image URL (assuming it’s an array with one URL)
-        {/* console.log(imageUrls) */}
-        {/* {imageUrls.map((url, index) => {
-            console.log(typeof url)
-        })} */}
-       // console.log(imageUrls)
-    
-
-        return (
-            <SwiperSlide key={ele.id} className='col-3 products_Border'>
-                <NavLink style={{ textDecoration: "none" }} to={`/singleProduct/${ele?.id}`}>
-                    {/* Render the first image URL from the parsed array */}
-                    <img style={{ maxWidth: "100%", maxHeight: "100%", height: "180px" }} src={ele.images} alt={ele.title} />
-                    <h5>{ele.title}</h5>
-                    <p>{ele.price}</p>
-                </NavLink>
-            </SwiperSlide>
-        );
-    })
-)}
-
-                        </Swiper>
-                    </div>
-                </div>
-            );
-        })}
-    </div>
-)}
-
-
-                {/* Pagination Controls */}
-                <div className="pagination">
-                    <button 
-                        onClick={() => handlePageChange(currentPage - 1)} 
-                        disabled={currentPage === 1}
-                    >
-                        Previous
-                    </button>
-                    <button 
-                        onClick={() => handlePageChange(currentPage + 1)} 
-                        disabled={currentPage === Math.ceil(categoryData.length / categoriesPerPage)}
-                    >
-                        Next
-                    </button>
-                </div>
+  return (
+    <>
+      <div className="container">
+        {/* Show spinner while loading */}
+        {state.isLoading ? (
+          <div className="spinner-container">
+            <ClipLoader color="#000000" loading={state.isLoading} size={50} />
+          </div>
+        ) : state.reject ? (
+          <div>
+            <div style={{ textAlign: "center" }}>
+              <h3 style={{ textAlign: "center", color: "red" }}>
+                Server Error
+              </h3>
+              <button
+                style={{ color: "red" }}
+                onClick={() => {
+                  dispatch(categoryProduct());
+                  dispatch(productS());
+                }}
+              >
+                Retry
+              </button>
             </div>
-        </>
-    );
+          </div>
+        ) : (
+          <div className="row">
+            {currentCategories?.map((cat) => {
+              {/* const filterListProducts = state?.listOfProduct?.filter(
+                (ele) => ele.category.name === cat
+              ); */}
+              const filterListProducts = Array.isArray(state?.listOfProduct)
+                ? state?.listOfProduct.filter((ele) => ele.category.name === cat)
+                : [];
+              return (
+                <div key={cat} className="container">
+                  <div className="row product_Border">
+                    <h4>{cat}</h4>
+                    <Swiper
+                      spaceBetween={20}
+                      slidesPerView={4}
+                      loop={true}
+                      autoplay={{ delay: 3000 }}
+                      modules={[Navigation, Pagination]}
+                      pagination={{ clickable: true }}
+                      navigation
+                    >
+                      {state.isLoading ? (
+                        <div className="spinner-container">
+                          <ClipLoader
+                            color="#000000"
+                            loading={state.isLoading}
+                            size={50}
+                          />
+                        </div>
+                      ) : (
+                        filterListProducts?.map((ele) => {
+                            console.log(ele)
+
+                          return (
+                            <SwiperSlide
+                              key={ele.id}
+                              className="col-3 products_Border"
+                            >
+                              <NavLink
+                                style={{ textDecoration: "none" }}
+                                to={`/singleProduct/${ele?.id}`}
+                              >
+                                {/* Render the first image URL from the parsed array */}
+                                <img
+                                  style={{
+                                    maxWidth: "100%",
+                                    maxHeight: "100%",
+                                    height: "180px",
+                                    borderRadius:"15px"
+                                  }}
+                                  src={ele?.images}
+                                  alt={ele.title}
+                                />
+                                <h5>{ele.title}</h5>
+                                <p>{ele.price}</p>
+                              </NavLink>
+                            </SwiperSlide>
+                          );
+                        })
+                      )}
+                    </Swiper>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Pagination Controls */}
+        <div className="pagination">
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={
+              currentPage === Math.ceil(categoryData.length / categoriesPerPage)
+            }
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </>
+  );
 };

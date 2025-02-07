@@ -1,7 +1,7 @@
 
 
 .product_Border{
-   background-color: rgb(184, 160, 160);
+   background-color: rgba(221, 180, 118, 0.658);
    margin-bottom: 10px;
    padding: 10px;
    border-radius: 15px;
@@ -37,11 +37,11 @@
   
       button {
         padding: 5px 10px;
-        border: 1px solid #ddd;
+        border: 1px solid #dfe98b;
         cursor: pointer;
         background-color: white;
         &:hover {
-          background-color: #f0f0f0;
+          background-color: #a7ee8b;
         }
         &.active {
           background-color: #007bff;
@@ -69,3 +69,106 @@
     text-align: center;
     padding: 10px;
   }
+
+
+
+
+
+
+
+
+// // General Styles
+// .container {
+//     padding: 20px;
+//   }
+  
+//   // Classic Design Styles
+//   .product-classic {
+//     .product_Border {
+//       border: 1px solid #ccc;  // Light border for classic look
+//       padding: 15px;
+//       background-color: #fafafa;  // Soft background
+//       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//       transition: transform 0.3s ease;
+  
+//       &:hover {
+//         transform: translateY(-5px);  // Subtle hover effect for classic style
+//       }
+  
+//       img {
+//         border-radius: 5px;  // Soft rounded corners for classic style
+//         max-width: 100%;
+//         max-height: 180px;
+//       }
+  
+//       h5 {
+//         font-family: 'Times New Roman', serif;  // Classic serif font
+//         font-size: 18px;
+//         color: #333;
+//       }
+  
+//       p {
+//         color: #777;
+//         font-size: 16px;
+//       }
+//     }
+//   }
+  
+//   // Sporty Design Styles
+//   .product-sporty {
+//     .product_Border {
+//       border: 2px solid #ff5722;  // Bold, dynamic border
+//       padding: 20px;
+//       background-color: #f5f5f5;
+//       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+//       transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+//       &:hover {
+//         transform: translateY(-8px);
+//         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+//       }
+  
+//       img {
+//         border-radius: 0;  // Square corners for sporty style
+//         max-width: 100%;
+//         max-height: 180px;
+//       }
+  
+//       h5 {
+//         font-family: 'Arial', sans-serif;  // Bold, modern font
+//         font-size: 20px;
+//         color: #ff5722;  // Sporty color
+//       }
+  
+//       p {
+//         color: #333;
+//         font-size: 18px;
+//       }
+//     }
+//   }
+  
+//   // Swiper Custom Styles
+//   .swiper-container {
+//     margin-bottom: 30px;
+//   }
+  
+//   .pagination button {
+//     background-color: #333;
+//     color: white;
+//     padding: 8px 16px;
+//     border: none;
+//     cursor: pointer;
+//     transition: background-color 0.3s ease;
+  
+//     &:hover {
+//       background-color: #ff5722;
+//     }
+  
+//     &:disabled {
+//       background-color: #ccc;
+//       cursor: not-allowed;
+//     }
+//   }
+  
+
+
